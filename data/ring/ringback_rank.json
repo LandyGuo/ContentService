@@ -1,0 +1,66 @@
+[
+    {
+        "source": "cm",
+        "title": "最热门",
+        "image": "http://imgstatic.baidu.com/img/image/shouye/liuyan.jpg",
+        "ringbacks" : [
+        	"浮夸#林志炫",
+        	"为了遇见你#戚薇",
+        	"伤心2012#饶天亮",
+        	"一生无悔#高安"
+        ]
+    },
+    {
+        "source" : "cm",
+        "title": "最新更新",
+        "image": "http://imgstatic.baidu.com/img/image/shouye/liuyifei.jpg",
+        "ringbacks" : [
+            "伤心2012#饶天亮",
+            "为了遇见你#戚薇",
+            "一生无悔#高安",
+            "浮夸#林志炫"
+        ] 
+    },
+    {
+        "source" : "cu",
+        "title": "Top100",
+        "image": "http://imgstatic.baidu.com/img/image/shouye/zhanggenshuo.jpg",
+        "ringbacks" : [
+            "爱上两个不同的#朱梓骁",
+            "我是一只小小鸟#赵露",
+            "我爱你中国#平安",
+            "长安长安#梁博"
+        ]        
+    },
+    {
+        "source" : "cu",
+        "title": "最新更新",
+        "image": "http://imgstatic.baidu.com/img/image/shouye/fanbingbing.jpg",
+        "ringbacks" : [
+            "我爱你中国#平安",
+            "爱上两个不同的#朱梓骁"
+        ]        
+    },
+    {
+        "source" : "ct",
+        "title": "上升最快",
+        "image": "http://imgstatic.baidu.com/img/image/shouye/sunli.jpg",
+        "ringbacks" : [
+            "一吻天荒#胡歌",
+            "触动心触动爱#by2",
+            "最爱#杨宗纬",
+            "烟花易冷#林志炫"
+        ]        
+    },
+    {
+        "source" : "ct",
+        "title": "人气榜",
+        "image": "http://imgstatic.baidu.com/img/image/shouye/wuqilong.jpg",
+        "ringbacks" : [
+        	"最爱#杨宗纬",
+            "烟花易冷#林志炫",
+            "触动心触动爱#by2",
+            "一吻天荒#胡歌"
+        ]        
+    }
+]

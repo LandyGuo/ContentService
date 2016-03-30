@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script src="http://static.55yule.com/video/js/iqiyi.js"></script>
+<script>
+	$(document).ready(function(){
+		//javaCaller("getUrl('shoujiduoduo', '100002')");
+		//javaCaller('getUrl("iqiyi", "http://data.video.qiyi.com/videos/variety/20130704/9f67541edd15e855a0cd3076a44336ee.mp4")');
+		//javaCaller("getUrl('youku', 'XNDk4Nzk0MDA4')");
+	});
+	
+	function javaCaller(expr){
+		eval(expr);
+	}
+	
+	function javaCallback(value){
+		console.log(value);
+		window.jsInterface.runOnAndroidJavaScript(value);
+	}
+	
+	function getUrl(type, arg){
+		if(type == "shoujiduoduo"){
+			var url = "http://www.shoujiduoduo.com/ringweb/ringweb.php?type=geturl&act=down&rid=" + arg;
+			$.ajax({
+				url : url,
+				success : function(data){
+					javaCallback(data);
+				},
+				error : function(xhr, testStatus, error) {
+					javaCallback("");
+				},
+				dataType : "text",
+				type : "get",
+			});
+		}
+		else if(type == "iqiyi"){
+			var url = arg + "?v=" + iqiyi_v;
+			$.ajax({
+				url : url,
+				success : function(data){
+					javaCallback(videoUrl.data.l)
+				},
+				error : function(xhr, status, error) {
+					javaCallback("");
+				},
+				dataType : "script",
+				type : "get",
+			});
+		}
+		else if(type == "youku"){
+			var pid = '0865e0628a79dfbb';
+			var guid = '0';
+			var id = arg;
+			var format = "1,2,3,4,5,6,7,8";
+			var url = "http://api.3g.youku.com/v3/play/address?" + "pid=" + pid + "&guid=" + guid + "&id=" + id + "&format=" + format + "&callback=?";
+			$.ajax({
+				url : url,
+				success : function(data){
+					var results = data.results;
+					var url = "";
+					if(results != undefined){
+						formats = ["3gphd", "3gp", "mp4", "flv", "flvhd", "hd2"]; //"m3u8", "m3u8_mp4", "m3u8_flv", "m3u8_hd"];
+						for(var i=0; i<formats.length; i++){
+							format = formats[i];
+							if(results[format] != undefined){
+								if(results[format].length == 1){
+									url = results[format][0]['url'];
+									break;
+								}									
+							}
+						}
+					}
+					javaCallback(url);
+				},
+				error : function(xhr, status, error){
+					javaCallback("");
+				},
+				dataType : "json",
+				type : "get",
+			});	
+		}
+		else{
+			javaCallback("");
+		}
+	}
+</script>
+</head>
+
+<body>
+</body>
+</html>

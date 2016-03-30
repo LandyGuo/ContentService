@@ -1,0 +1,4 @@
+global-include *.ini *.cron *.xml *.cfg *.logrotate files *.sh *.html *.conf *.map
+include manage.py
+graft scripts
+graft data

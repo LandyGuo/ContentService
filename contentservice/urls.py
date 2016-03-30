@@ -1,0 +1,47 @@
+from django.conf.urls import patterns, include, url
+
+urlpatterns = patterns('contentservice.api',
+    url(r'api/admin/video/albums.json',  'admin.query_video_albums'),
+    url(r'api/admin/video/sources.json', 'admin.query_video_sources'),
+    url(r'api/admin/video/remerge.json', 'admin.remerge_video'),
+    url(r'api/admin/crawler/jobs.json', 'admin.crawler_job'),
+    url(r'api/admin/crawler/confs.json', 'admin.crawler_conf'),
+    url(r'api/admin/crawler/processes.json', 'admin.crawler_process'),
+    url(r'api/admin/crawler/commands.json', 'admin.crawler_command'),
+    url(r"api/admin/schedule", "admin.schedule"),
+
+    url(r'api/serverinfo', 'server_info'),
+    url(r'api/contents$', 'contents'),
+
+    url(r'api/novel/novel_listtype', 'novel.novel_listtype'),
+    url(r'api/novel/novel_list', 'novel.novel_list'),
+    url(r'api/novel/novel', 'novel.novel'),
+    url(r'api/novel/chapter', 'novel.chapter'),
+
+    url(r"api/video/album_list", "video.album_list"),
+    url(r"api/video/rank_type", "video.rank_type"),
+    url(r"api/video/rank", "video.rank"),
+    url(r"api/video/top", "video.VideoRankResponse"),
+
+    url(r'api/ring/startup_info', 'ring.startup_info'),
+    url(r'api/ring/feedback' ,'ring.feedback'),
+    url(r'api/ring/ringback_ranklist', 'ring.ringback_ranklist'),
+    url(r'api/ring/ringback_rank', 'ring.ringback_rank'),
+    url(r'api/ring/ringback_search', 'ring.ringback_search'),
+    url(r'api/ring/ringtone_ranklist', 'ring.ringtone_ranklist'),
+    url(r'api/ring/ringtone_rank', 'ring.ringtone_rank'),
+    url(r'api/ring/ringtone_user', 'ring.ringtone_user'),
+    url(r'api/ring/ringtone_buy', 'ring.ringtone_buy'),
+    url(r'api/ring/ringtone_remove', 'ring.ringtone_remove'),
+    url(r'api/ring/ringtone_search', 'ring.ringtone_search'),
+    url(r'api/ring/ring_ranklist', 'ring.ring_ranklist'),
+    url(r'api/ring/scene_ranklist', 'ring.scene_ranklist'),
+    url(r'api/ring/scene_rank', 'ring.scene_rank'),
+    url(r'api/ring/scene_user', 'ring.scene_user'),
+    url(r'api/ring/scene_buy', 'ring.scene_buy'),
+    url(r'api/ring/scene_remove', 'ring.scene_remove'),
+    url(r'api/ring/scene_search', 'ring.scene_search'),
+    url(r'api/ring/scene_recommend', 'ring.scene_recommend'),
+    url(r'api/ring/search_hot', 'ring.search_hot'),
+
+)

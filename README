@@ -1,40 +1,5 @@
-内容爬虫系统使用说明
-TBD
-
-
-
-铃音小蜜服务使用说明
-
-线上服务器地址: ring.dianapk.qihiang.us (42.121.127.230)
-线上数据库: mongodb 10.200.20.60/content_ring
-
-铃音小蜜服务和内容爬虫系统公用一个工程, 服务的部署和运作方式等同于内容爬虫系统
-
-除了公用的爬虫架构部分外，铃音服务特有的模块有:
-models.ring 铃音相关数据结构
-api.ring 铃音相关API
-crawlerimpl.ring 铃音相关爬虫
-data.ring 运管编辑的数据,包括图标,场景,排行榜等
-scripts.import_xxx 铃音相关脚本，用于导入运营编辑的数据
-
-铃音服务的基本概念:
-彩铃(ringback): 打电话接通时播放的音乐(替代嘟嘟声)，需要在运营商设置
-振铃(ringtone): 来电铃声, 在手机端设置
-场景(scene): 相当于主题, 一个场景对应一个振铃和一个彩铃
-抓取工作主要分振铃和彩铃，彩铃需要抓取运营商相应的彩铃ID(供客户端购买), 振铃和彩铃都需要抓取歌曲信息和下载地址(不抓取音频文件)
-振铃为三大运营商共有, 但彩铃和场景是运营商独立的, 每个手机只能看到它所属运营商的彩铃和场景, 榜单也同理
-
-铃音服务API:
-标准json协议,请参考api.ring代码, 个别的API需要增加签名, 请参考api.__init__.signature_required. 客户端启动时需要调用startup_info API, 主要返回服务器时间和geturl脚本的位置(该脚本在客户端运行，动态获取下载链接)
-客户端调用ring_ranklist获取振铃和彩铃的榜单列表，然后再获取每个榜单的详情
-场景榜单用于首页转盘上的内容
-
-运营文件的导入脚本:
-运营用excel编辑完成后, 手动拷贝到.txt文件(每行一条记录, 字段按照\t分割), 再执行脚本导入数据库, 导入脚本在scripts.import_xxx. 注意图标文件需要和文本文件放在一个目录下
-Example: 
-python manage.py runscript import_scene data/ring/scene_cm.txt cm 导入中国移动的场景 (carrier: cm移动, cu联通, ct电信)
-python manage.py runscript import_ringback_rank data/ring/joke.txt joke 导入彩铃joke排行榜
-python manage.py runscript import_scene_rank data/ring/scene_ct_hot.txt hot ct 导入电信的hot场景排行
-
-注意事项:
-铃音服务的全文搜索依赖于mongodb textsearch, 但这个重启后默认是disable的, 需要手动执行命令db.adminCommand({setParameter:1, textSearchEnabled:true})
+  This project started from one of my work about 2 years ago,it is used as a tool to crawl newest videos information to 
+provide content service for web pages.
+  the whole system running on django framework,written in Python.
+  
+  I decided to open source for   
